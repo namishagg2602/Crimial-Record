@@ -291,7 +291,7 @@ while(temp!=NULL){
 
         temp->cr = temp->cr->next;
 
-        printf("1 criminal record with crime number %d deleted successfully!!\n", crimeno);
+        printf("1 Criminal record with crime number %d deleted successfully!!\n", crimeno);
         return;
     }
     else{
@@ -302,7 +302,7 @@ while(temp!=NULL){
 
             temp2->next = temp2->next->next;
 
-            printf("1 criminal record with crime number %d deleted successfully!!\n", crimeno);
+            printf("1 Criminal record with crime number %d deleted successfully!!\n", crimeno);
             return;
         }
         temp2 = temp2->next;
@@ -362,7 +362,7 @@ int repeat;
 switch (ch)
 {
 case 1:
-printf("enter the police station code  of the police station whose details you want to edit \n ");
+printf("Enter the police station code  of the police station whose details you want to edit \n ");
 char polcode[30];
 scanf("%s",polcode);
 struct police *station;
@@ -371,7 +371,7 @@ polche=searchpolice(polcode);
 if(polche==0)
 {
 
-    printf("police station not found\n ");
+    printf("Police station not found\n ");
 
 }
 else
@@ -389,8 +389,9 @@ else{
         if(strcmp(temp->police_code, polcode)==0)
             station=p;
     }}
-
+    printf("****************************************************\n");
     printf("ENTER \n 2 to change the station incharge \n 3 to change the area covered \n 4to change the number of staff recruited \n 5 change the capacity of criminals that can be stationed  ");
+    printf("****************************************************\n");
     int change;
     scanf("%d",&change);
     switch(change)
@@ -398,25 +399,25 @@ else{
 
 
     case 2:
-         printf("enter the new name of the station incharge ");
+         printf("Enter the new name of the station incharge ");
 
         gets(nname);
         strcpy(nname,station->incharge);
         break;
     case 3:
-         printf("enter the new area to be covered ");
+         printf("Enter the new area to be covered ");
 
         gets(nname);
         strcpy(nname,station->area);
         break;
     case 4:
-         printf("enter the new number of staff in the  station ");
+         printf("Enter the new number of staff in the  station ");
 
         scanf("%d",&number);
          station->staff = number;
          break ;
     case 5:
-        printf("enter the new number of criminals in the station ");
+        printf("Enter the new number of criminals in the station ");
 
         scanf("%d",&number);
          station->no_of_criminals = number;
@@ -470,7 +471,9 @@ while(temp!=NULL){
 
     do
     {
+        printf("****************************************************\n");
     printf("ENTER\n 1 to change name of criminal \n 2 to change the case incharge \n 3 to change the crime code \n 4 to change the tenure and change the date to relese of the criminal  ");
+    printf("****************************************************\n");
     int change;
     scanf("%d",&change);
     switch(change)
@@ -547,12 +550,13 @@ void  displaydata()
         pn++;
         cn=0;
            temp2=temp->cr;
-
+           printf("****************************************************\n");
            printf("\n Police Station: %d \n      Code: %s",pn,temp->police_code);Sleep(50);
            printf("\n       Incharge: %s",temp->incharge);Sleep(50);
            printf("\n       Area Under: %s",temp->area);Sleep(50);
            printf("\n       Staff count: %d",temp->staff);Sleep(50);
            printf("\n       No. of criminals: %d\n",temp->no_of_criminals);Sleep(50);
+           printf("****************************************************\n");
 
 
            if(temp2==NULL)
@@ -561,6 +565,7 @@ void  displaydata()
             while(temp2!=NULL)
             {
                 ++cn;
+                printf("**********************************************************\n");
                 printf("\n   Criminal no.: %d",cn);Sleep(50);
                 printf("\n      Name: %s",temp2->name);Sleep(50);
                 printf("\n      Code: %d",temp2->criminalno);Sleep(50);
@@ -569,6 +574,7 @@ void  displaydata()
                 printf("\n      Admit Date: %d-%d-%d", temp2->admit.d, temp2->admit.m, temp2->admit.y);
                 printf("\n      Release Date: %d-%d-%d",temp2->release.d, temp2->release.m, temp2->release.y);
                 printf("\n      Tenure: %d",temp2->tenure);Sleep(50);
+                printf("***********************************************************\n");
                 temp2=temp2->next;
             }
 
@@ -583,19 +589,23 @@ void  displaydata()
 // made by Shriyam Tripathi
 int main(){
 
-system ("color f0");
+system ("COLOR 80");
 
 load_data();
 //printall();
 
 printf("\n\n");
+printf("****************************************************\n");
 printf("Welcome to our Police Station Terminal!!\n\n");
+printf("****************************************************\n");
 int userid;
 char pass[10];
 
 while(1){
 
-printf("Please enter your userid and password to proceed\n\n");
+printf("****************************************************\n");
+printf("Please enter your userId and password to proceed\n\n");
+printf("****************************************************\n");
 
 scanf("%d%s", &userid, &pass);
 int n=6;
@@ -607,7 +617,7 @@ if(userid==123456 && strcmp(pass, "project")==0){
     break;
 }
 else{
-    printf("Entered username and password are not correct!!\nPlease try again to proceed!!\n\n");
+    printf("Entered userId and password are not correct!!\nPlease try again to proceed!!\n\n");
     int x;
     printf("enter '1' to try again or '2' to exit\n");
 
@@ -621,20 +631,26 @@ else{
 }
 
     clrscr();
+    printf("******************\n");
     printf("Login success!!\n\n");
+    printf("******************\n");
     Sleep(500);
     while(1){
     clrscr();
     int i;
+
+    printf("****************************************************\n");
+    printf("             MENU               \n");
     printf("Enter '1' to print the records\n");
     printf("Enter '2' to insert the records\n");
     printf("Enter '3' to delete the records\n");
     printf("Enter '4' to edit the records\n");
     printf("Enter '5' to search a record\n");
     printf("Enter '6' to exit the system\n");
+    printf("****************************************************\n");
     scanf("%d", &i);
     if(i==1){
-        printf("Here are all the records that are in database::\n\n");
+        printf("Here are all the records that are in database :: \n\n");
         displaydata();
 
     }
@@ -656,20 +672,20 @@ else{
             printf("Enter the criminal number:\n");
             int crnumber;
             scanf("%d", &crnumber);
-            printf("Enter the incharge name:\n");
+            printf("Enter the Incharge name:\n");
             char incharge[100];
             scanf("%s", incharge);
             int t, d1, m1, y1, d2, m2, y2;
             printf("Enter tenure, date of admittance and date of release:\n");
             scanf("%d%d%d%d%d%d%d", &t, &d1, &m1, &y1, &d2, &m2, &y2);
             newcriminal(pcode, name, crcode, crnumber, incharge, t, d1, d2, m1, m2, y1, y2);
-            printf("New Criminal added\n\n");
+            printf("New Criminal has been added !!!\n\n");
     }
     else{
         printf("Enter the police station code:\n");
             char pcode[10];
             scanf("%s", pcode);
-            printf("Enter the police station incharge:\n");
+            printf("Enter the police station Incharge:\n");
             char incharge[100];
             scanf("%s", incharge);
             printf("Enter the area name:\n");
